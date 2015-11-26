@@ -16,6 +16,7 @@
 # along with libWURFL.  If not, see <http://www.gnu.org/licenses/>.
 
 AM_CPPFLAGS = -I$(top_srcdir) @CHECK_CFLAGS@
+AUTOMAKE_OPTIONS = subdir-objects
 
 nobase_include_HEADERS =  \
 	wurfl.h \
