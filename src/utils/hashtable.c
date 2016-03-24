@@ -98,12 +98,14 @@ static int hashtable_reinforce_hash(const int weak_hash) {
 }
 
 hashtable_t* hashtable_init(coll_equals_f* eq_fn, coll_hash_f* hash_fn, hashtable_options_t* options) {
-
+	hashtable_options_t default_opts;
 	if(options==NULL) {
-		hashtable_options_t default_opts = {16, 0.75f};
+		default_opts.initial_capacity = 16;
+		default_opts.load_factor = 0.75f;		
+		//= {16, 0.75f};
 		options = &default_opts;
 	}
-
+	
 	assert(options->initial_capacity > 0);
 	assert(options->load_factor > 0);
 	// gnulib assert(!isnanf(options->load_factor));
